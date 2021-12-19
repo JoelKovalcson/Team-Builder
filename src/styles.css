@@ -7,6 +7,7 @@
     --accent-text-color: #f56e0b;
     --accent-border-color: #aa4d0b;
     --secondary-background: #505054;
+    --tertiary-background: #424246;
 }
 
 body {
@@ -30,7 +31,7 @@ header {
 }
 
 .card {
-    background-color: var(--secondary-background);
+    background-color: var(--tertiary-background);
     border: thick solid var(--accent-border-color);
 }
 
@@ -38,4 +39,14 @@ h3 {
     padding-bottom: 5px;
     border-bottom: medium solid var(--page-background);
     font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: lightskyblue;
+}
+
+a:hover {
+    text-decoration: none;
+    color: lavender;
 }
