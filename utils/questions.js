@@ -101,7 +101,7 @@ const questions = {
             name: 'engineerGithub',
             message: "What is your engineer's GitHub username?",
             validate: input => {
-                if (input && input.trim().split(/.*\s.*/).length == 1) return true;
+                if (input && input.trim().split(/\s+/).length == 1) return true;
                 else return "Please enter a valid GitHub username!";
             },
             when: ({addMember}) => {
