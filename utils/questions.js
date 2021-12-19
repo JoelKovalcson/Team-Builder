@@ -14,7 +14,7 @@ const questions = {
             name: 'managerID',
             message: "What is your team manager's ID #?",
             validate: input => {
-                if (input && Number.isInteger(input)) return true;
+                if (input && Number.parseInt(input)) return true;
                 else return "That ID # is not valid, please try again!";
             }
         },
@@ -32,7 +32,7 @@ const questions = {
             name: 'managerOffice',
             message: "What is your team manager's office number?",
             validate: input => {
-                if (input && Number.isInteger(input)) return true;
+                if (input && Number.parseInt(input)) return true;
                 else return "That is not a valid office number!";
             }
         }
@@ -56,8 +56,9 @@ const questions = {
                 if (input) return true;
                 else return "Please enter your employee's name!";
             },
-            when: ({addMember}) => {
-                addMember != "Finish build team";
+            when: ({ addMember }) => {
+                if (addMember != "Finish build team") return true;
+                else return false;
             }
         },
         {
@@ -65,11 +66,12 @@ const questions = {
             name: 'employeeID',
             message: "What is your employee's ID #?",
             validate: input => {
-                if (input && Number.isInteger(input)) return true;
+                if (input && Number.parseInt(input)) return true;
                 else return "That ID # is not valid, please try again!";
             },
-            when: ({addMember}) => {
-                addMember != "Finish build team";
+            when: ({ addMember }) => {
+                if (addMember != "Finish build team") return true;
+                else return false;
             }
         },
         {
@@ -80,8 +82,9 @@ const questions = {
                 if (input && input.match(/..*@..*[.]..*/)) return true;
                 else return "That is not a valid email, please try again!";
             },
-            when: ({addMember}) => {
-                addMember != "Finish build team";
+            when: ({ addMember }) => {
+                if (addMember != "Finish build team") return true;
+                else return false;
             }
         },
         {
@@ -92,8 +95,9 @@ const questions = {
                 if (input) return true;
                 else return "Please enter your intern's school!";
             },
-            when: ({addMember}) => {
-                addMember == "Add an Intern"
+            when: ({ addMember }) => {
+                if (addMember == "Add an Intern") return true;
+                else return false;
             }
         },
         {
@@ -104,8 +108,9 @@ const questions = {
                 if (input && input.trim().split(/\s+/).length == 1) return true;
                 else return "Please enter a valid GitHub username!";
             },
-            when: ({addMember}) => {
-                addMember == "Add an Engineer"
+            when: ({ addMember }) => {
+                if (addMember == "Add an Engineer") return true;
+                else return false;
             }
         }
     ]
