@@ -1,14 +1,11 @@
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const questions = require('./utils/questions')
-const fs = require('fs');
-
-
+const questions = require('./utils/questions');
 const inquirer = require('inquirer');
+const buildTeam = require('./utils/buildTeam');
 
 let employees = [];
-
 
 const getEmployees = (input) => {
     return inquirer.prompt(questions.employee).then(empInfo  => {
@@ -33,5 +30,5 @@ const getManager = (input) => {
 }
 
 getManager().then(getEmployees).then(() => {
-    console.log(employees);
+   buildTeam(employees); 
 });
