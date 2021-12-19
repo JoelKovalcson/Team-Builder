@@ -20,21 +20,23 @@ function buildTeam(employees) {
     let cardSection = $("#cardSection");
     // Employees will be displayed in the order they were provided by the user
     employees.forEach(employee => {
-        let div = $("<div>");
+        let div = $("<div>")
+        .addClass("card col-3 mx-1 my-5 flex");
         let name = $("<h2>");
         let role = $("<h3>");
         let list = $("<ul>");
         let id = $("<li>");
         let email = $("<li>");
         let special = $("<li>");
+        
 
         name.html(employee.getName());
         role.html(employee.getRole());
-        id.html(employee.getID());
-        email.html(employee.getEmail());
-        if (employee instanceof Manager) special.html(employee.getOfficeNumber());
-        else if (employee instanceof Intern) special.html(employee.getSchool());
-        else if (employee instanceof Engineer) special.html(employee.getGithub());
+        id.html(`ID #: ${employee.getID()}`);
+        email.html(`Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a>`);
+        if (employee instanceof Manager) special.html(`Office #: ${employee.getOfficeNumber()}`);
+        else if (employee instanceof Intern) special.html(`School: ${employee.getSchool()}`);
+        else if (employee instanceof Engineer) special.html(`GitHub: <a href="https://github.com/${employee.getGithub()}">https://github.com/${employee.getGithub()}</a>`);
 
         list.append(id);
         list.append(email);
