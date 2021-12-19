@@ -13,4 +13,8 @@ describe('Manager', () => {
     test('getRole', () => {
         expect(emp.getRole()).toBe("Manager");
     })
+
+    test('getOfficeNumber', () => {
+        expect(emp.getOfficeNumber()).toBe(office);
+    })
 })
